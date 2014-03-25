@@ -1,0 +1,26 @@
+{
+  "name": "tomcat",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": 7,
+      "oracle": {
+        "accept_oracle_download_terms": true
+      }
+    }
+  },
+  "description": "Tomcat Role in stecker",
+  "run_list": [
+    "recipe[java]"
+  ],
+  "env_run_lists" : {
+    "production" : [],
+    "preprod" : [],
+    "dev": [],
+    "test": []
+   },
+  "override_attributes": {
+  }
+}
