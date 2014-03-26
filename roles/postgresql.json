@@ -49,7 +49,7 @@
         "track_io_timing": "on",
         "autovacuum": "on",
         "log_autovacuum_min_duration": "30s",
-        "datestyle": "ios, ymd",
+        "datestyle": "iso, ymd",
         "timezone": "Japan",
         "lc_messages": "en_US.UTF-8",
         "lc_monetary": "en_US.UTF-8",
