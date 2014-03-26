@@ -11,6 +11,7 @@
         "postgres": "ea703e7aa1efda0064eaa507d9e8ab7e"
       },
       "initdb_locale": "--no-locale --encoding=UTF8",
+      "wal_archive_dir": "/var/lib/pgsql/wal_archive",
       "config": {
         "listen_addresses": "localhost",
         "port": 5432,
@@ -28,7 +29,7 @@
         "checkpoint_segments": 16,
         "checkpoint_completion_target": 0.9,
         "archive_mode": "on",
-        "archive_command": "cp %p /var/lib/pgsql/9.3/wal_archive/%f",
+        "archive_command": "cp %p /var/lib/pgsql/wal_archive/%f",
         "max_wal_senders": 1,
         "effective_cache_size": "4GB",
         "log_destination": "stderr",
@@ -57,15 +58,7 @@
         "lc_time": "en_US.UTF-8",
         "default_text_search_config": "pg_catalog.english",
         "deadlock_timeout": "5s"
-      },
-      "pg_hba": [
-      {"type": "local","db": "all","user": "postgres","addr": null,"method": "trust"},
-      {"type": "local","db": "all","user": "postgres","addr": "127.0.0.1/32","method": "md5"},
-      {"type": "local","db": "all","user": "postgres","addr": "::1/128","method": "md5"},
-      {"type": "local","db": "replication","user": "postgres","addr": null,"method": "trust"},
-      {"type": "host","db": "replication","user": "postgres","addr": "127.0.0.1/32","method": "trust"},
-      {"type": "host","db": "replication","user": "postgres","addr": "::1/128","method": "trust"}
-      ]
+      }
     }
   },
   "description": "setup stecker. install apache(web) tomcat(ap) postgresql(db)",
@@ -79,5 +72,15 @@
     "test": []
    },
   "override_attributes": {
+    "postgresql": {
+      "pg_hba": [
+      {"type": "local","db": "all","user": "postgres","addr": null,"method": "trust"},
+      {"type": "host","db": "all","user": "postgres","addr": "127.0.0.1/32","method": "md5"},
+      {"type": "host","db": "all","user": "postgres","addr": "::1/128","method": "md5"},
+      {"type": "local","db": "replication","user": "postgres","addr": null,"method": "trust"},
+      {"type": "host","db": "replication","user": "postgres","addr": "127.0.0.1/32","method": "trust"},
+      {"type": "host","db": "replication","user": "postgres","addr": "::1/128","method": "trust"}
+      ]
+    }
   }
 }

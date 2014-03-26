@@ -1,5 +1,5 @@
 {
   "run_list": [
-    "role[tomcat]"
+    "role[postgresql_test]"
   ]
 }
