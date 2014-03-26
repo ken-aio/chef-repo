@@ -45,6 +45,19 @@ directory node['postgresql']['dir'] do
   action :create
 end
 
+if node['postgresql']['wal_archive_dir']
+  wal_archive_dir = node['postgresql']['wal_archive_dir']
+else
+  wal_archive_dir = "#{node['postgresql']['dir']}/wal_archive"
+end
+
+directory wal_archive_dir do
+  owner "postgres"
+  group "postgres"
+  recursive true
+  action :create
+end
+
 node['postgresql']['server']['packages'].each do |pg_pack|
 
   package pg_pack
