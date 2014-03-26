@@ -1,0 +1,52 @@
+{
+  "name": "circleboard",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "postgresql": {
+      "version": "9.3",
+      "enable_pgdg_yum": "true",
+      "initdb_locale": "--no-locale --encoding=UTF8",
+      "config": {
+        "listen_addresses": "localhost",
+        "port": "5432",
+        "superuser_reserved_connections": 2,
+        "shared_buffers": "4GB",
+        "work_mem": "32MB",
+        "maintenance_work_mem": "512MB",
+        "vacuum_cost_delay": "100ms",
+        "vacuum_cost_page_hit": 1,
+        "vacuum_cost_page_miss": 10,
+        "vacuum_cost_page_dirty": 20,
+        "vacuum_cost_limit": 200,
+        "wal_level": "archive",
+        "checkpoint_segments": 16,
+        "checkpoint_completion_target": "0.9",
+        "archive_mode": "on",
+        "archive_command": "cp %p /var/lib/pgsql/9.3/wal_archive/%f",
+        "max_wal_senders": 1,
+        "effective_cache_size": "4GB",
+        "log_filename": "postgresql-%Y-%m-%d.log",
+        "log_file_mode": "0644",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
+      }
+    }
+  },
+  "description": "setup stecker. install apache(web) tomcat(ap) postgresql(db)",
+  "run_list": [
+  ],
+  "env_run_lists" : {
+    "production" : [],
+    "preprod" : [],
+    "dev": [],
+    "test": []
+   },
+  "override_attributes": {
+  }
+}
