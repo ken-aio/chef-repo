@@ -53,7 +53,15 @@
         "lc_time": "en_US.UTF-8",
         "default_text_search_config": "pg_catalog.english",
         "deadlock_timeout": "5s"
-      }
+      },
+      "pg_hba": [
+      {"type": "local","db": "all","user": "postgres","addr": null,"method": "trust"},
+      {"type": "local","db": "all","user": "postgres","addr": "127.0.0.1/32","method": "md5"},
+      {"type": "local","db": "all","user": "postgres","addr": "::1/128","method": "md5"},
+      {"type": "local","db": "replication","user": "postgres","addr": null,"method": "trust"},
+      {"type": "host","db": "replication","user": "postgres","addr": "127.0.0.1/32","method": "trust"},
+      {"type": "host","db": "replication","user": "postgres","addr": "::1/128","method": "trust"},
+      ]
     }
   },
   "description": "setup stecker. install apache(web) tomcat(ap) postgresql(db)",
