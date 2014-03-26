@@ -6,6 +6,8 @@
     "postgresql": {
       "version": "9.3",
       "enable_pgdg_yum": "true",
+      "password_is": "hoge",
+      "password": "ea703e7aa1efda0064eaa507d9e8ab7e",
       "initdb_locale": "--no-locale --encoding=UTF8",
       "config": {
         "listen_addresses": "localhost",
@@ -60,7 +62,7 @@
       {"type": "local","db": "all","user": "postgres","addr": "::1/128","method": "md5"},
       {"type": "local","db": "replication","user": "postgres","addr": null,"method": "trust"},
       {"type": "host","db": "replication","user": "postgres","addr": "127.0.0.1/32","method": "trust"},
-      {"type": "host","db": "replication","user": "postgres","addr": "::1/128","method": "trust"},
+      {"type": "host","db": "replication","user": "postgres","addr": "::1/128","method": "trust"}
       ]
     }
   },
