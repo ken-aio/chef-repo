@@ -6,9 +6,8 @@
     "postgresql": {
       "version": "9.3",
       "enable_pgdg_yum": "true",
-      "password_is": "hoge",
       "password": {
-        "postgres": "ea703e7aa1efda0064eaa507d9e8ab7e"
+        "postgres": "hoge"
       },
       "initdb_locale": "--no-locale --encoding=UTF8",
       "wal_archive_dir": "/var/lib/pgsql/wal_archive",
